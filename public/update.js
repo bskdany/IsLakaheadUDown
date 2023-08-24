@@ -1,11 +1,16 @@
 // update.js
 
 function updateVariableValue() {
-    fetch('/getVariableValue')
+    fetch('/checkIfWebsiteDown')
       .then(response => response.json())
       .then(data => {
         const variableValueElement = document.getElementById('isWebsiteDown');
-        variableValueElement.textContent = `Updated value: ${data.isWebsiteDown}`;
+        if(data.isWebsiteDown){
+            variableValueElement.textContent = "YES"
+        }
+        else if(!data.isWebsiteDown){
+            variableValueElement.textContent = "NO"
+        }
       })
       .catch(error => {
         console.error('Error fetching variable value:', error);
