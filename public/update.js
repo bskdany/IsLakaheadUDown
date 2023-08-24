@@ -17,4 +17,5 @@ function updateVariableValue() {
       });
   }
   
+  updateVariableValue()
   setInterval(updateVariableValue, 1000);
