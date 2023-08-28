@@ -6,6 +6,8 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 const websiteUrl = 'https://server.bskdany.com/';
+// const websiteUrl = 'https://www.lakeheadu.ca/';
+
 
 let isWebsiteDown = false;
 
