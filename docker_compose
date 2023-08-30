@@ -1,0 +1,7 @@
+version: '3'
+services:
+  web:
+    image: islakeheadudown:latest
+    container_name: islakeheadudown
+    ports:
+      - "3000:3000"
