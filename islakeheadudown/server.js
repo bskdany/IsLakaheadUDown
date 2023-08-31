@@ -34,9 +34,10 @@ function checkIfWebsiteDown(){
     });
 }
 
+checkIfWebsiteDown()
 setInterval(() => {
    checkIfWebsiteDown()
-}, 600000);
+}, 60000);
 
 
 app.listen(port, () => {
