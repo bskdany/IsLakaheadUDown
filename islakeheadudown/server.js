@@ -5,8 +5,8 @@ const port = 3000
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-const websiteUrl = 'https://server.bskdany.com/';
-// const websiteUrl = 'https://www.lakeheadu.ca/';
+// const websiteUrl = 'https://server.bskdany.com/';
+const websiteUrl = 'https://www.lakeheadu.ca/';
 
 
 let isWebsiteDown = false;
@@ -36,7 +36,7 @@ function checkIfWebsiteDown(){
 
 setInterval(() => {
    checkIfWebsiteDown()
-}, 10000);
+}, 600000);
 
 
 app.listen(port, () => {

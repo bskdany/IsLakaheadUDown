@@ -18,4 +18,4 @@ function updateVariableValue() {
   }
   
   updateVariableValue()
-  setInterval(updateVariableValue, 1000);
+  setInterval(updateVariableValue, 10000);
