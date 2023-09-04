@@ -1,13 +1,18 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Ensures the content takes up at least the full viewport height */
-    margin: 0; /* Remove default body margin */
-    font-family: 'Roboto', sans-serif;
-  }
+  display: flex;
+  justify-content: center;
+  flex-direction: column; 
+  align-items: center;
+  min-height: 100vh; /* Ensures the content takes up at least the full viewport height */
+  margin: 0; /* Remove default body margin */
+  font-family: 'Roboto', sans-serif;
+}
   
-  #isWebsiteDown {
-    text-align: center; /* Center the text inside the element */
-    font-size: 10em;
-  }
+#isWebsiteDown {
+  text-align: center; /* Center the text inside the element */
+  font-size: 10em;
+}
+
+#title {
+  margin-bottom: 5em;
+}
