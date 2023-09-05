@@ -4,10 +4,14 @@ const app = express()
 const port = 3000
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+const sqlite3 = require("sqlite3").verbose();
 
+// by scanning my own website hosted on the school network
+// I can see if the wifi is down too
 const websiteUrl = 'https://server.bskdany.com/';
 // const websiteUrl = 'https://www.lakeheadu.ca/';
 
+// const db = new sqlite3.Database("messages.db");
 
 let isWebsiteDown = false;
 
