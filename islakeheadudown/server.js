@@ -4,7 +4,7 @@ const app = express()
 const port = 3000
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-const sqlite3 = require("sqlite3").verbose();
+// const sqlite3 = require("sqlite3").verbose();
 
 // by scanning my own website hosted on the school network
 // I can see if the wifi is down too
@@ -19,18 +19,24 @@ app.get('/', (req, res) => {
     res.render('index');
 })
 
+onlineMessage = "Looks like it's all good for now"
+offlineMessage = "The wifi is down, panic"
+message = ""
+
 app.get('/checkIfWebsiteDown', (req, res) => {
-    res.json({ isWebsiteDown });
-  });
+    res.json({ isWebsiteDown, message});
+});
 
 function checkIfWebsiteDown(){
     https.get(websiteUrl, (response) => {
         if (response.statusCode === 200) {
             isWebsiteDown = false;
+            message = onlineMessage;
             console.log(`${websiteUrl} is online.`);
         } 
         else {
             isWebsiteDown = true;
+            message = offlineMessage;
             console.log(`${websiteUrl} is not online (Status Code: ${response.statusCode}).`);
         }
     }).on('error', (error) => {
