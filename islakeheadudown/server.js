@@ -5,22 +5,21 @@ const port = 3000
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 const { getMessage } = require('./getMessage.js');
-// const sqlite3 = require("sqlite3").verbose();
+const { getVisitors } = require('./visitorHandle.js');
+const { increaseVisitors } = require('./visitorHandle.js');
 
 // by scanning my own website hosted on the school network
 // I can see if the wifi is down too
 const websiteUrl = 'https://server.bskdany.com/';
 // const websiteUrl = 'https://www.lakeheadu.ca/';
 
-// const db = new sqlite3.Database("messages.db");
-
 let isWebsiteDown = false;
+message = ""
+
 
 app.get('/', (req, res) => {
     res.render('index');
 })
-
-message = ""
 
 app.get('/checkIfWebsiteDown', (req, res) => {
     res.json({ isWebsiteDown, message});
@@ -50,6 +49,9 @@ function checkIfWebsiteDown(){
         console.error(`Error checking ${websiteUrl}: ${error.message}`);
     });
 }
+
+
+console.log(getVisitors())
 
 checkIfWebsiteDown()
 setInterval(() => {
