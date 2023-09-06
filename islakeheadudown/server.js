@@ -4,6 +4,7 @@ const app = express()
 const port = 3000
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+const { getMessage } = require('./getMessage.js');
 // const sqlite3 = require("sqlite3").verbose();
 
 // by scanning my own website hosted on the school network
@@ -19,8 +20,6 @@ app.get('/', (req, res) => {
     res.render('index');
 })
 
-onlineMessage = "Looks like it's all good for now"
-offlineMessage = "The wifi is down, panic"
 message = ""
 
 app.get('/checkIfWebsiteDown', (req, res) => {
@@ -30,14 +29,22 @@ app.get('/checkIfWebsiteDown', (req, res) => {
 function checkIfWebsiteDown(){
     https.get(websiteUrl, (response) => {
         if (response.statusCode === 200) {
-            isWebsiteDown = false;
-            message = onlineMessage;
-            console.log(`${websiteUrl} is online.`);
+            if(!isWebsiteDown){
+                isWebsiteDown = false;
+                getMessage(isWebsiteDown, (randomline) => {
+                    message = randomline;
+                });
+                console.log(`${websiteUrl} is online.`);
+            }
         } 
         else {
-            isWebsiteDown = true;
-            message = offlineMessage;
-            console.log(`${websiteUrl} is not online (Status Code: ${response.statusCode}).`);
+            if(!isWebsiteDown){
+                isWebsiteDown = false;
+                getMessage(isWebsiteDown, (randomline) => {
+                    message = randomline;
+                });
+                console.log(`${websiteUrl} is not online (Status Code: ${response.statusCode}).`);
+            }
         }
     }).on('error', (error) => {
         console.error(`Error checking ${websiteUrl}: ${error.message}`);
@@ -47,6 +54,9 @@ function checkIfWebsiteDown(){
 checkIfWebsiteDown()
 setInterval(() => {
    checkIfWebsiteDown()
+   getMessage(isWebsiteDown, (randomline) => {
+    message = randomline;
+});
 }, 60000);
 
 

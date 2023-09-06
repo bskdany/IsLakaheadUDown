@@ -22,4 +22,4 @@ function updateVariableValue() {
   }
   
   updateVariableValue()
-  setInterval(updateVariableValue, 10000);
+  setInterval(updateVariableValue, 60000);
