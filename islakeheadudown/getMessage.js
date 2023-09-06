@@ -11,10 +11,6 @@ function readFileLines(isItDown, callback) {
     }
 
     fs.readFile(filePath, 'utf-8', (err, data) => {
-        if (err) {
-            callback(err, null);
-            return;
-        }
         const lines = data.split('\n');
         callback(lines);
     });
