@@ -20,6 +20,7 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .container {
@@ -28,25 +29,26 @@ body {
   flex-direction: column;
   justify-content: center; /* Vertically center content */
   align-items: center; /* Horizontally center content */
-  min-height: 100vh;
+  padding-bottom: 100px;
+  /* min-height: 100vh; */
 }
 
 #isWebsiteDown {
+  width: 100%;
   text-align: center; /* Center the text inside the element */
-  font-size: 10em;
+  font-size: 9em;
 }
 
 #customMessage {
-  /* margin-top: 1em; */
+  width: 100%;
   font-size: 1.5em;
   text-align: center;
 }
 
 #footer {
-  /* margin-bottom: 0.5em; */
   font-size: 0.8em;
   text-align: center;
   position: fixed;
-  bottom: 0; /* Fix the footer to the bottom of the viewport */
+  bottom: 2%; /* Fix the footer to the bottom of the viewport */
   width: 100%; /* Make the footer span the entire viewport width */
 }
