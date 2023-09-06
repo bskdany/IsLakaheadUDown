@@ -28,6 +28,7 @@ body {
   flex-direction: column;
   justify-content: center; /* Vertically center content */
   align-items: center; /* Horizontally center content */
+  min-height: 100vh;
 }
 
 #isWebsiteDown {
@@ -36,11 +37,16 @@ body {
 }
 
 #customMessage {
-  margin-top: 1em;
+  /* margin-top: 1em; */
   font-size: 1.5em;
+  text-align: center;
 }
 
 #footer {
   /* margin-bottom: 0.5em; */
   font-size: 0.8em;
+  text-align: center;
+  position: fixed;
+  bottom: 0; /* Fix the footer to the bottom of the viewport */
+  width: 100%; /* Make the footer span the entire viewport width */
 }
