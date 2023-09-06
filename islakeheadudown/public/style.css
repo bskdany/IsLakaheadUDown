@@ -3,29 +3,44 @@
   color: black;
 }
 
-body {
+/* body {
   height: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column; 
   align-items: center;
   min-height: 100vh; /* Ensures the content takes up at least the full viewport height */
-  margin: 0; /* Remove default body margin */
-}
+  /* margin: 0; Remove default body margin */
+/* } */ 
   
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1; /* Makes the container expand to fill the available vertical space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center content */
+  align-items: center; /* Horizontally center content */
+}
+
 #isWebsiteDown {
-  margin-top: 25%;
-  /* flex: 1; */
   text-align: center; /* Center the text inside the element */
   font-size: 10em;
 }
 
 #customMessage {
-  flex: 1;
   margin-top: 1em;
   font-size: 1.5em;
 }
 
 #footer {
-  margin-bottom: 1em;
+  /* margin-bottom: 0.5em; */
+  font-size: 0.8em;
 }
