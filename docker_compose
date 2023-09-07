@@ -6,4 +6,4 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - /home/islakeheadudodwn/data:/islakeheadudown/islakeheadudown/data
+      - /home/islakeheadudown/data:/usr/app/islakeheadudown/data
