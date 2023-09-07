@@ -5,3 +5,5 @@ services:
     container_name: islakeheadudown
     ports:
       - "3000:3000"
+    volumes:
+      - /home/islakeheadudodwn/data:/islakeheadudown/islakeheadudown/data
