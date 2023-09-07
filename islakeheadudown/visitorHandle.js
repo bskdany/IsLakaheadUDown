@@ -1,8 +1,8 @@
 const fs = require('fs');
-filePath = "data/visitors.txt"
 
 // Function to read a file and return its lines as an array
 function getVisitors() {
+    filePath = "data/visitors.txt"
     try {
         const data = fs.readFileSync(filePath, 'utf8');
         return data;
@@ -13,9 +13,9 @@ function getVisitors() {
     }
 }
 
-
 // Function to read a file and return its lines as an array
 function increaseVisitors() {
+    filePath = "data/visitors.txt"
     const data = fs.readFileSync(filePath, 'utf8');
     visitors_count = Number(data);
     visitors_count+=1;
@@ -26,6 +26,3 @@ module.exports = {
     getVisitors,
     increaseVisitors
 };
-
-increaseVisitors()
-console.log(getVisitors())

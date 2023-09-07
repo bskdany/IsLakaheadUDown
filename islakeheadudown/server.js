@@ -7,6 +7,7 @@ app.use(express.static('public'));
 const { getMessage } = require('./getMessage.js');
 const { getVisitors } = require('./visitorHandle.js');
 const { increaseVisitors } = require('./visitorHandle.js');
+const { measureMemory } = require('vm');
 
 // by scanning my own website hosted on the school network
 // I can see if the wifi is down too
@@ -14,34 +15,34 @@ const websiteUrl = 'https://server.bskdany.com/';
 // const websiteUrl = 'https://www.lakeheadu.ca/';
 
 let isWebsiteDown = false;
-message = ""
+message = "bruh"
+visitorCount = ""
 
 
 app.get('/', (req, res) => {
+    increaseVisitors();
     res.render('index');
 })
 
 app.get('/checkIfWebsiteDown', (req, res) => {
-    res.json({ isWebsiteDown, message});
+    res.json({ isWebsiteDown, message, visitorCount});
 });
 
 function checkIfWebsiteDown(){
+    visitorCount = getVisitors()
+    message = getMessage(isWebsiteDown)
     https.get(websiteUrl, (response) => {
         if (response.statusCode === 200) {
             if(!isWebsiteDown){
                 isWebsiteDown = false;
-                getMessage(isWebsiteDown, (randomline) => {
-                    message = randomline;
-                });
+                message = getMessage(isWebsiteDown)
                 console.log(`${websiteUrl} is online.`);
             }
         } 
         else {
             if(!isWebsiteDown){
                 isWebsiteDown = false;
-                getMessage(isWebsiteDown, (randomline) => {
-                    message = randomline;
-                });
+                message = getMessage(isWebsiteDown)
                 console.log(`${websiteUrl} is not online (Status Code: ${response.statusCode}).`);
             }
         }
@@ -50,15 +51,9 @@ function checkIfWebsiteDown(){
     });
 }
 
-
-console.log(getVisitors())
-
 checkIfWebsiteDown()
 setInterval(() => {
    checkIfWebsiteDown()
-   getMessage(isWebsiteDown, (randomline) => {
-    message = randomline;
-});
 }, 60000);
 
 
