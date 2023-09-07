@@ -33,7 +33,7 @@ function checkIfWebsiteDown(){
     message = getMessage(isWebsiteDown)
     https.get(websiteUrl, (response) => {
         if (response.statusCode === 200) {
-            if(!isWebsiteDown){
+            if(isWebsiteDown){
                 isWebsiteDown = false;
                 message = getMessage(isWebsiteDown)
                 console.log(`${websiteUrl} is online.`);
@@ -41,7 +41,7 @@ function checkIfWebsiteDown(){
         } 
         else {
             if(!isWebsiteDown){
-                isWebsiteDown = false;
+                isWebsiteDown = true;
                 message = getMessage(isWebsiteDown)
                 console.log(`${websiteUrl} is not online (Status Code: ${response.statusCode}).`);
             }

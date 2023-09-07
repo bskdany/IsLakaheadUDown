@@ -52,3 +52,10 @@ body {
   bottom: 2%; /* Fix the footer to the bottom of the viewport */
   width: 100%; /* Make the footer span the entire viewport width */
 }
+
+#visitorCount {
+  text-align: center;
+  position: fixed;
+  bottom: 8%; /* Fix the footer to the bottom of the viewport */
+  width: 100%; /* Make the footer span the entire viewport width */
+}

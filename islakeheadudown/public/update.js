@@ -6,7 +6,7 @@ function updateVariableValue() {
       .then(data => {
         const variableValueElement = document.getElementById('isWebsiteDown');
         const customMessage = document.getElementById('customMessage');
-        const visitorCount = document.getElementById('visitorCount');
+        const visitorCount = document.getElementById('visitorCountValue');
 
         if(data.isWebsiteDown){
             variableValueElement.textContent = "YES"
