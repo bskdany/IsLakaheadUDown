@@ -23,12 +23,12 @@ const main = async () => {
 //   ];
 
   const options = {
-    to: 'danylobyshkin@gmail.com',
+    to: 'bskdany@pm.me',
     // cc: 'cc1@example.com, cc2@example.com',
     // replyTo: 'amit@labnol.org',
-    subject: 'Test subject',
-    text: 'This email is sent from the command line',
-    // html: `<p>🙋🏻‍♀️  &mdash; This is a <b>test email</b> from <a href="https://digitalinspiration.com">Digital Inspiration</a>.</p>`,
+    subject: 'LakeheadU WiFi is Down',
+    // text: 'We noticed that the wifi is down on the lakeheadu network',
+    html: `<p>Hi Heidi!</p><a href="https://bskdany.com">Unsubscribe</a>`,
     // attachments: fileAttachments,
     textEncoding: 'base64',
     headers: [
